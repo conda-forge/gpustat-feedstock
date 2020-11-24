@@ -1,0 +1,26 @@
+From 8ebc2fb1977eccc188c86d9582e1212f7bbe29c0 Mon Sep 17 00:00:00 2001
+From: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+Date: Tue, 24 Nov 2020 17:01:34 +0300
+Subject: [PATCH 4/4] Replace CRLF with LF
+
+Signed-off-by: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+---
+ gpustat/test_gpustat.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gpustat/test_gpustat.py b/gpustat/test_gpustat.py
+index 35244e3..8ef9bd2 100644
+--- a/gpustat/test_gpustat.py
++++ b/gpustat/test_gpustat.py
+@@ -173,7 +173,7 @@ def remove_ansi_codes(s):
+     import re
+     s = re.compile(r'\x1b[^m]*m').sub('', s)
+     s = re.compile(r'\x0f').sub('', s)
+-    return s
++    return s.replace('\r\n', '\n')
+ 
+ 
+ class TestGPUStat(unittest.TestCase):
+-- 
+2.29.2.windows.2
+
