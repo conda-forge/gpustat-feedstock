@@ -1,0 +1,31 @@
+From 328216a1558c0ffd0fb9b2d13b9469946a566286 Mon Sep 17 00:00:00 2001
+From: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+Date: Tue, 24 Nov 2020 16:36:23 +0300
+Subject: [PATCH 2/3] Do not use signal on Windows
+
+Signed-off-by: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+---
+ gpustat/__main__.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/gpustat/__main__.py b/gpustat/__main__.py
+index 76704f0..984dae1 100644
+--- a/gpustat/__main__.py
++++ b/gpustat/__main__.py
+@@ -59,9 +59,10 @@ def main(*argv):
+     if not argv:
+         argv = list(sys.argv)
+ 
+-    # attach SIGPIPE handler to properly handle broken pipe
+-    import signal
+-    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
++    if sys.platform != 'win32':
++        # attach SIGPIPE handler to properly handle broken pipe
++        import signal
++        signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+ 
+     # arguments to gpustat
+     import argparse
+-- 
+2.29.2.windows.2
+

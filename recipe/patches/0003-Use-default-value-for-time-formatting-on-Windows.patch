@@ -1,0 +1,30 @@
+From a1d8dde8849cd9bfd089fd667fe9e20e9122f9e8 Mon Sep 17 00:00:00 2001
+From: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+Date: Tue, 24 Nov 2020 16:48:07 +0300
+Subject: [PATCH 3/3] Use default value for time formatting on Windows
+
+Signed-off-by: Vasily Litvinov <vasilij.n.litvinov@intel.com>
+---
+ gpustat/core.py | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/gpustat/core.py b/gpustat/core.py
+index 73d3534..73d4e0b 100644
+--- a/gpustat/core.py
++++ b/gpustat/core.py
+@@ -450,7 +450,11 @@ class GPUStatCollection(object):
+ 
+         # header
+         if show_header:
+-            time_format = locale.nl_langinfo(locale.D_T_FMT)
++            try:
++                time_format = locale.nl_langinfo(locale.D_T_FMT)
++            except AttributeError:
++                # nl_langinfo is missing on Windows, use locale-dependent format
++                time_format = '%c'
+ 
+             header_template = '{t.bold_white}{hostname:{width}}{t.normal}  '
+             header_template += '{timestr}  '
+-- 
+2.29.2.windows.2
+

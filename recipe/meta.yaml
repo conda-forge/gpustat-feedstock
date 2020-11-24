@@ -10,6 +10,8 @@ source:
   sha256: f69135080b2668b662822633312c2180002c10111597af9631bb02e042755b6c
   patches:
     - patches/0001-Switch-to-blessed.patch
+    - patches/0002-Do-not-use-signal-on-Windows.patch
+    - patches/0003-Use-default-value-for-time-formatting-on-Windows.patch
 
 build:
   noarch: python
@@ -55,3 +57,4 @@ about:
 extra:
   recipe-maintainers:
     - hadim
+    - vnlitvinov
