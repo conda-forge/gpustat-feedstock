@@ -11,19 +11,19 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - gpustat = gpustat:main
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
     - pytest-runner
     - setuptools
   run:
-    - python
+    - python >=3.5
     - nvidia-ml
     - psutil
     - blessings >=1.6
@@ -32,8 +32,12 @@ requirements:
 test:
   imports:
     - gpustat
+  requires:
+    - pytest
+    - mockito
   commands:
     - gpustat --help
+    - pytest --pyargs gpustat.test_gpustat
 
 about:
   home: https://github.com/wookayin/gpustat
