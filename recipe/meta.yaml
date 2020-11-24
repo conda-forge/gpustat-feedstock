@@ -12,6 +12,7 @@ source:
     - patches/0001-Switch-to-blessed.patch
     - patches/0002-Do-not-use-signal-on-Windows.patch
     - patches/0003-Use-default-value-for-time-formatting-on-Windows.patch
+    - patches/0004-Replace-CRLF-with-LF.patch
 
 build:
   noarch: python

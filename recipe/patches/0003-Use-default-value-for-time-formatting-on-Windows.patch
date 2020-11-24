@@ -1,7 +1,7 @@
 From a1d8dde8849cd9bfd089fd667fe9e20e9122f9e8 Mon Sep 17 00:00:00 2001
 From: Vasily Litvinov <vasilij.n.litvinov@intel.com>
 Date: Tue, 24 Nov 2020 16:48:07 +0300
-Subject: [PATCH 3/3] Use default value for time formatting on Windows
+Subject: [PATCH 3/4] Use default value for time formatting on Windows
 
 Signed-off-by: Vasily Litvinov <vasilij.n.litvinov@intel.com>
 ---
