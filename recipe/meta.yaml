@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f69135080b2668b662822633312c2180002c10111597af9631bb02e042755b6c
+  patches:
+    - patches/0001-Switch-to-blessed.patch
 
 build:
   noarch: python
@@ -17,6 +19,8 @@ build:
     - gpustat = gpustat:main
 
 requirements:
+  build:
+    - m2-patch  # [win]
   host:
     - python >=3.5
     - pip
