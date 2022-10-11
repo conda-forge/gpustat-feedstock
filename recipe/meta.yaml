@@ -26,7 +26,7 @@ requirements:
     - python >=3.5
     - nvidia-ml-py
     - psutil
-    - blessings >=1.6
+    - blessed >=1.16.1
     - six >=1.7
 
 test:
