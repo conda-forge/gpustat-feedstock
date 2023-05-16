@@ -21,7 +21,8 @@ requirements:
     - python >=3.6
     - pip
     - pytest-runner
-    - setuptools
+    - setuptools >=45
+    - setuptools_scm[toml] >=6.2
   run:
     - python >=3.6
     - nvidia-ml-py >=11.450.129
