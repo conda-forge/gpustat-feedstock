@@ -1,11 +1,11 @@
-About gpustat
-=============
+About gpustat-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gpustat-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/wookayin/gpustat
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gpustat-feedstock/blob/main/LICENSE.txt)
 
 Summary: A simple command-line utility for querying and monitoring GPU status
 
@@ -148,4 +148,5 @@ Feedstock Maintainers
 =====================
 
 * [@hadim](https://github.com/hadim/)
+* [@mattip](https://github.com/mattip/)
 
