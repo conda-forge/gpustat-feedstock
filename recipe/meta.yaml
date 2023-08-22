@@ -1,5 +1,5 @@
 {% set name = "gpustat" %}
-{% set version = "1.1" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c8fc105404aac11884f70ed2fa06cfd210d3cd389ccae4a9bc38579c72460cee
+  sha256: c18d3ed5518fc16300c42d694debc70aebb3be55cae91f1db64d63b5fa8af9d8
 
 build:
   noarch: python
