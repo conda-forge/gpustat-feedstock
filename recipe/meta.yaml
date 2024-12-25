@@ -6,25 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c18d3ed5518fc16300c42d694debc70aebb3be55cae91f1db64d63b5fa8af9d8
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - gpustat = gpustat:main
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - pytest-runner
     - setuptools >=45
     - setuptools_scm[toml] >=6.2
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - nvidia-ml-py >=11.450.129
     - psutil >=5.6.0
     - blessed >=1.17.1
@@ -37,6 +37,7 @@ test:
     - pytest >=5.4.1
     - mockito >=1.2.1
     - pytest-runner
+    - python {{ python_min }}
   commands:
     - gpustat --help
     - pytest --pyargs gpustat.test_gpustat
